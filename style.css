@@ -1,150 +1,168 @@
-html {
-  background-color: #fff;
+/* Importa a fonte Poppins do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Define as propriedades padrão para todos os elementos */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* Define a fonte para Poppins */
 }
 
-button {
-  margin: 20px;
-  height: 30px;
-  width: 90px;
-  border: 0;
-  border-radius: 5px;
-  background-color: darkblue;
-  color: #fff;
+/* Define as propriedades para a tag html e body */
+html,body{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: #6665ee; /* Define a cor de fundo para um tom de roxo */
 }
 
-.circle {
-  background-color: rgb(0, 0, 0);
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  position: relative;
-  z-index: -5;
-  margin-left: 250px;
-  top: 450px;
+/* Define o estilo para o texto selecionado */
+::selection{
+  color: #fff; /* Define a cor do texto selecionado como branco */
+  background: #6665ee; /* Define a cor de fundo para um tom de roxo */
 }
 
-.circle2 {
-  background-color: rgb(110, 110, 253);
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  z-index: -4;
-  margin-left: 250px;
-  top: 400px;
-  position: relative;
-}
-
-.circle3 {
-  background-color: rgb(14, 1, 87);
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  z-index: -3;
-  margin-left: 250px;
-  top: 350px;
-  position: relative;
-}
-
-.circle4 {
-  background-color: rgb(34, 55, 148);
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  z-index: -2;
-  margin-left: 250px;
-  top: 300px
-  position: relative;
-}
-
-.circle5 {
-  background-color: rgb(46, 35, 211);
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  z-index: -1;
-  margin-left: 250px;
-  top: 250px;
-  position: relative;
-}
-
-.box1 {
-  background-color: rgba(255, 0, 64, 0.548);
-  width: 200px;
-  height: 200px;
-  border: 2px solid #000;
-  padding: 20px;
-}
-
-.box2 {
-  background-color: green;
-  width: 200px;
-  height: 200px;
-  border: 2px solid #000;
-  margin: 20px;
-}
-
-.box3 {
-  background-color: red;
-  width: 200px;
-  height: 200px;
-  border: 20px solid #000;
-}
-
-.box4 {
-  background-color: grey;
-  width: 200px;
-  height: 200px;
-  border: 20px solid #000;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-  margin: 10px;
-  border-radius: 20px;
-}
-
-.container {
-  width: 200px;
-  height: 600px;
-  background-color: orange;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.container2 {
-  width: 500px;
-  height: 500px;
-  padding: 5px;
-  background-color: red;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.container3 {
-  width: 500px;
-  height: 500px;
-  padding: 5px;
-  background-color: rgb(87, 87, 87);
-}
-
-.container4 {
+/* Define as propriedades para a seção de barras de progresso */
+.skill-bars{
+  padding: 25px 30px;
   width: 600px;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  background: #fff; /* Define a cor de fundo para branco */
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2); /* Adiciona uma sombra */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
 }
 
-.child2 {
-  background-color: lightblue;
-  width: 200px;
-  height: 100px;
-  border-radius: 20px;
+/* Define as propriedades para cada barra de progresso individual */
+.skill-bars .bar{
+  margin: 20px 0;
 }
 
+/* Define as propriedades para a primeira barra de progresso */
+.skill-bars .bar:first-child{
+  margin-top: 0px;
+}
+
+/* Define as propriedades para as informações da barra de progresso */
+.skill-bars .bar .info{
+  margin-bottom: 5px;
+}
+
+/* Define as propriedades para o texto dentro das informações da barra de progresso */
+.skill-bars .bar .info span{
+  font-weight: 500;
+  font-size: 17px;
+  opacity: 0; /* Define a opacidade como 0 para animar mais tarde */
+  animation: showText 0.5s 1s linear forwards; /* Adiciona animação para mostrar o texto */
+}
+
+/* Define a animação para mostrar o texto */
+@keyframes showText {
+  100%{
+    opacity: 1; /* Define a opacidade como 1 quando a animação estiver completa */
+  }
+}
+
+/* Define as propriedades para a linha de progresso */
+.skill-bars .bar .progress-line{
+  height: 10px;
+  width: 100%;
+  background: #f0f0f0; /* Define a cor de fundo para um tom de cinza */
+  position: relative;
+  transform: scaleX(0); /* Define a escala X como 0 para animar mais tarde */
+  transform-origin: left;
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05), /* Adiciona uma sombra interna */
+              0 1px rgba(255,255,255,0.8);
+  animation: animate 1s cubic-bezier(1,0,0.5,1) forwards; /* Adiciona animação para mostrar a linha de progresso */
+
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+/* Define o estilo dos spans dentro das linhas de progresso */
+.bar .progress-line span{
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #6665ee;
+  /* Animação para aumentar a escala horizontal das linhas de progresso */
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+
+/* Define a largura da linha de progresso para cada habilidade */
+.bar .progress-line.html span{
+  width: 100%;
+}
+.bar .progress-line.css span{
+  width: 80%;
+}
+.bar .progress-line.jquery span{
+  width: 85%;
+}
+.bar .progress-line.python span{
+  width: 100%;
+}
+.bar .progress-line.mysql span{
+  width: 80%;
+}
+
+/* Define o estilo do triângulo acima das linhas de progresso */
+.progress-line span::before{
+  position: absolute;
+  content: "";
+  top: -10px;
+  right: 0;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: #000;
+  opacity: 0;
+  /* Animação para mostrar o triângulo após um atraso de 1.5 segundos */
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+
+/* Define o estilo da caixa de texto acima das linhas de progresso */
+.progress-line span::after{
+  position: absolute;
+  top: -28px;
+  right: 0;
+  font-weight: 500;
+  background: #000;
+  color: #fff;
+  padding: 1px 8px;
+  font-size: 12px;
+  border-radius: 3px;
+  opacity: 0;
+  /* Animação para mostrar a caixa de texto após um atraso de 1.5 segundos */
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+
+/* Define o conteúdo da caixa de texto para cada habilidade */
+.progress-line.html span::after{
+  content: "90%";
+}
+.progress-line.css span::after{
+  content: "80%";
+}
+.progress-line.jquery span::after{
+  content: "85%";
+}
+.progress-line.python span::after{
+  content: "100%";
+}
+.progress-line.mysql span::after{
+  content: "80%";
+}
+
+/* Animação para mostrar o conteúdo dos spans após um atraso de 1 segundo */
+@keyframes showText2 {
+  100%{
+    opacity: 1;
+  }
+}
